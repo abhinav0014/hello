@@ -1,147 +1,55 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- Tell IE to use the latest rendering mode available on Win7 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Direct Download — Chrome .exe</title>
-  <style>
-    body{font-family:Segoe UI, Tahoma, Arial, sans-serif; padding:28px; background:#f7f7f7}
-    .card{background:#fff; padding:18px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); max-width:760px}
-    h1{font-size:18px; margin:0 0 12px}
-    p{margin:8px 0 14px; color:#333}
-    .actions{display:flex; gap:10px; flex-wrap:wrap}
-    a.button, button{display:inline-block;padding:10px 14px;border-radius:6px;border:0;background:#0078d4;color:#fff;text-decoration:none;cursor:pointer}
-    a.plain{background:transparent;color:#0078d4;padding:0}
-    .note{font-size:13px;color:#555;margin-top:12px}
-    pre{white-space:break-spaces;background:#f0f0f0;padding:10px;border-radius:6px;overflow:auto}
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- Force IE to use its best available mode but still support older ones -->
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  <title>Download Google Chrome (Direct Link)</title>
+  <style type="text/css">
+    body { font-family: Arial, Helvetica, sans-serif; background-color: #ffffff; color: #000000; margin: 20px; }
+    .container { width: 600px; margin: 0 auto; border: 1px solid #cccccc; padding: 10px; }
+    h1 { font-size: 18px; }
+    p { font-size: 14px; line-height: 1.4em; }
+    .button {
+      background-color: #3366cc;
+      color: #ffffff;
+      padding: 6px 12px;
+      text-decoration: none;
+      border: 1px solid #224488;
+    }
+    .button:hover { background-color: #224488; }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>Download: Google Chrome (example file)</h1>
+  <div class="container">
+    <h1>Google Chrome Offline Installer</h1>
     <p>
-      If the button below does not start a download in your old browser, use the plain link.
+      Click the link below to download the setup file directly.
+      If nothing happens, right-click and choose <strong>"Save target as..."</strong>
+      to start the download.
     </p>
 
-    <!-- Plain link fallback (works in all browsers): -->
-    <p><a class="plain" href="https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe" target="_blank" rel="noreferrer noopener">
-      Open direct link in a new tab/window
-    </a></p>
+    <p>
+      <a class="button" href="https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe" target="_blank">
+        Download Chrome 104 (EXE)
+      </a>
+    </p>
 
-    <div class="actions">
-      <button id="downloadBtn">Download via script (best-effort)</button>
-      <a id="openLink" class="button" href="https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe" target="_blank">Open in browser</a>
-    </div>
+    <p>
+      File name: <strong>google-chrome-104-0-5112-81.exe</strong><br />
+      File type: Windows executable<br />
+      Recommended OS: Windows 7 or newer
+    </p>
 
-    <p class="note">Filename suggested: <strong>google-chrome-104-0-5112-81.exe</strong></p>
+    <hr />
 
-    <h2 style="font-size:14px;margin-top:16px">Advanced (what the script does)</h2>
-    <pre>
-1) Try fetch file via XHR as a Blob (may be blocked by CORS).
-2) If running in IE (navigator.msSaveOrOpenBlob) it will call that to prompt Save/Open.
-3) If browser supports the download attribute, create a temporary &lt;a download&gt; and click it.
-4) Otherwise open the file URL in a new tab/window as a fallback.</pre>
+    <p>
+      <strong>Note:</strong> This page uses an older HTML standard and will display correctly
+      on Internet Explorer 6, 7, 8, 9, 10, and 11.  
+      JavaScript is not required for this download.
+    </p>
   </div>
-
-<script>
-(function(){
-  var url = "https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe";
-  var suggestedFilename = "google-chrome-104-0-5112-81.exe";
-
-  function addEvent(el, ev, fn){
-    if (el.addEventListener) el.addEventListener(ev, fn, false);
-    else if (el.attachEvent) el.attachEvent('on' + ev, fn);
-    else el['on' + ev] = fn;
-  }
-
-  function downloadBlob(blob, filename){
-    // IE-specific
-    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-      try {
-        window.navigator.msSaveOrOpenBlob(blob, filename);
-        return true;
-      } catch(e) {
-        // fall through to other attempts
-      }
-    }
-
-    // Modern browsers: create object URL + anchor with download attribute
-    try {
-      var urlObj = window.URL || window.webkitURL;
-      var blobUrl = urlObj.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = blobUrl;
-      a.download = filename || suggestedFilename || '';
-      // Firefox requires the link to be in the DOM for click to work in some older versions
-      (document.body || document.documentElement).appendChild(a);
-      if (a.click) a.click();
-      else {
-        var evt = document.createEvent('MouseEvents');
-        evt.initEvent('click', true, true);
-        a.dispatchEvent(evt);
-      }
-      setTimeout(function(){ // cleanup
-        try{ urlObj.revokeObjectURL(blobUrl); }catch(e){}
-        try{ a.parentNode.removeChild(a); }catch(e){}
-      }, 1000);
-      return true;
-    } catch(e) {
-      return false;
-    }
-  }
-
-  function tryXHRThenFallback(){
-    // Try XHR to fetch blob (CORS may block)
-    try {
-      var xhr = new XMLHttpRequest();
-      // Use GET; third param true for async
-      xhr.open('GET', url, true);
-
-      // For older IE (<=9) responseType 'blob' isn't supported — fallback quickly
-      try {
-        xhr.responseType = 'blob';
-      } catch (e) {
-        // ignore if unsupported
-      }
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          // Status 200 OK (or 0 for local files)
-          var status = xhr.status === 1223 ? 204 : xhr.status; // IE bugfix
-          if ((status >= 200 && status < 300) || status === 0) {
-            var blob = xhr.response || (function(){ try{ return new Blob([xhr.responseText]); }catch(e){ return null; }})();
-            if (blob) {
-              if (downloadBlob(blob, suggestedFilename)) return;
-            }
-            // If blob approach failed, fallback to opening the URL
-            window.open(url, "_blank");
-          } else {
-            // XHR failed (CORS or other), fallback to opening the URL
-            window.open(url, "_blank");
-          }
-        }
-      };
-      xhr.onerror = function(){
-        window.open(url, "_blank");
-      };
-      xhr.send();
-    } catch (err) {
-      // Something went wrong in old browser — just open URL
-      window.open(url, "_blank");
-    }
-  }
-
-  addEvent(document.getElementById('downloadBtn'), 'click', function(e){
-    e = e || window.event;
-    if (e && e.preventDefault) e.preventDefault();
-    tryXHRThenFallback();
-  });
-
-  // For the "Open in browser" button, keep the link target
-  // (no extra JS needed)
-})();
-</script>
 </body>
 </html>
