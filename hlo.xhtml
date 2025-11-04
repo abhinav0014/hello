@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <title>Direct Download — Chrome .exe</title>
+  <style type="text/css">
+    body {font-family: Segoe UI, Tahoma, Arial, sans-serif; padding: 28px; background: #f7f7f7;}
+    .card {background: #ffffff; padding: 18px; border-radius: 8px;
+           box-shadow: 0 1px 4px rgba(0,0,0,.08); max-width: 760px;}
+    h1 {font-size: 18px; margin: 0 0 12px;}
+    p {margin: 8px 0 14px; color: #333333;}
+    .actions {margin-top: 10px;}
+    a.button, button {display: inline-block; padding: 10px 14px; border-radius: 6px;
+           border: 0; background: #0078d4; color: #ffffff; text-decoration: none; cursor: pointer;}
+    a.plain {background: transparent; color: #0078d4; padding: 0;}
+    .note {font-size: 13px; color: #555555; margin-top: 12px;}
+    pre {white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 6px; overflow: auto;}
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Download: Google Chrome (example file)</h1>
+    <p>
+      If the button below does not start a download in your old browser, use the plain link.
+    </p>
+
+    <p>
+      <a class="plain" href="https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe" target="_blank" rel="noreferrer noopener">
+        Open direct link in a new tab/window
+      </a>
+    </p>
+
+    <div class="actions">
+      <button id="downloadBtn" type="button">Download via script (best-effort)</button>
+      <a id="openLink" class="button" href="https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe" target="_blank">Open in browser</a>
+    </div>
+
+    <p class="note">
+      Filename suggested: <strong>google-chrome-104-0-5112-81.exe</strong>
+    </p>
+
+    <h2 style="font-size:14px;margin-top:16px;">Advanced (what the script does)</h2>
+    <pre>
+1) Try fetch file via XHR as a Blob (may be blocked by CORS).
+2) If running in IE (navigator.msSaveOrOpenBlob) it will call that to prompt Save/Open.
+3) If browser supports the download attribute, create a temporary &lt;a download&gt; and click it.
+4) Otherwise open the file URL in a new tab/window as a fallback.
+    </pre>
+  </div>
+
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+    var url = "https://dw.uptodown.net/dwn/3yitqO1pLGNwSelp9GzsMTtfhjpqpVB5kTk_e6Le82wJz4PARpZw0vdAwYh3Lc981l_cf-CL1roQCYEbJj8y7yVwt1zduHicfju_wZD1j5zk8cJsRzGxJvSp2dCgKmDO/9oyuyNifwmGIJ5VUP2qwYir6v7DJCWlo-9g2w3Hd8I0BiNwwDGQdWZMRfc3CQsJGMB7Z20nXIfVJzDA8eOAnnZN3CFycWd65Zr5wz7c9XSHg2lUxrZ8EGpnFzCf43K9i/0ZjRUy3SCmpvU4kLE9t0kChF9HLdGGQ7hoox7ckWJajxk9SOJCv7cCcuA3asbmGTQzIcae1Dn4bvUeht8GMUglQ2AZOAl12kBQm9jdG0e3I=/google-chrome-104-0-5112-81.exe";
+    var suggestedFilename = "google-chrome-104-0-5112-81.exe";
+
+    function addEvent(el, ev, fn) {
+      if (el.addEventListener) {
+        el.addEventListener(ev, fn, false);
+      } else if (el.attachEvent) {
+        el.attachEvent('on' + ev, fn);
+      } else {
+        el['on' + ev] = fn;
+      }
+    }
+
+    function downloadBlob(blob, filename) {
+      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        try {
+          window.navigator.msSaveOrOpenBlob(blob, filename);
+          return true;
+        } catch (e) {}
+      }
+      try {
+        var urlObj = window.URL || window.webkitURL;
+        var blobUrl = urlObj.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename || suggestedFilename;
+        (document.body || document.documentElement).appendChild(a);
+        if (a.click) { a.click(); }
+        else {
+          var evt = document.createEvent('MouseEvents');
+          evt.initEvent('click', true, true);
+          a.dispatchEvent(evt);
+        }
+        window.setTimeout(function() {
+          try { urlObj.revokeObjectURL(blobUrl); } catch (er) {}
+          try { a.parentNode.removeChild(a); } catch (er2) {}
+        }, 1000);
+        return true;
+      } catch (err) {
+        return false;
+      }
+    }
+
+    function tryXHRThenFallback() {
+      try {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        try { xhr.responseType = 'blob'; } catch (e) {}
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            var status = (xhr.status === 1223) ? 204 : xhr.status;
+            if ((status >= 200 && status < 300) || status === 0) {
+              var blob = xhr.response;
+              if (blob && downloadBlob(blob, suggestedFilename)) {
+                return;
+              }
+              window.open(url, '_blank');
+            } else {
+              window.open(url, '_blank');
+            }
+          }
+        };
+        xhr.onerror = function() {
+          window.open(url, '_blank');
+        };
+        xhr.send(null);
+      } catch (err) {
+        window.open(url, '_blank');
+      }
+    }
+
+    addEvent(document.getElementById('downloadBtn'), 'click', function(e) {
+      if (e && e.preventDefault) { e.preventDefault(); }
+      tryXHRThenFallback();
+    });
+  })();
+  //]]>
+  </script>
+</body>
+</html>
